@@ -5,14 +5,13 @@ class SearchBar extends React.Component {
 
   // this is an event callback, hence binding problem may arise, hence, we need to assign it as an
   // arrow function.
-  onInputChangerFunctionCustom = (event) => {
+  onInputChange = (event) => {
     this.setState({ term: event.target.value });
   };
 
   onFormSubmit = (event) => {
     //to prevent the default submit action of the browser
     event.preventDefault();
-    console.log(this.state.term);
     //TODO: Make sure we call callback from parent component
   };
 
@@ -25,7 +24,7 @@ class SearchBar extends React.Component {
             <input
               type="text"
               value={this.state.term}
-              onChange={this.onInputChangerFunctionCustom}
+              onChange={this.onInputChange}
             />
           </div>
         </form>
