@@ -4,6 +4,7 @@ import youtube from "../apis/youtube";
 
 class App extends React.Component {
   state = { videos: [] }; //do not initialize this kind of array variables to null.
+  // otherwise the 'length' query can return errors in the beginning where [] size = 0
 
   onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
@@ -17,8 +18,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <SearchBar onFormSubmit={this.onTermSubmit} />
-        I have {this.state.videos.length} videos.
+        <SearchBar onFormSubmit={this.onTermSubmit} />I have{" "}
+        {this.state.videos.length} videos.
       </div>
     );
   }
